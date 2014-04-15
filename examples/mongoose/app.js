@@ -13,3 +13,16 @@ db.on('error', function(err){
 db.once('open', function () {
   console.log('Connection is open!')
 });
+
+var schema = {name: String, age: Number};
+
+var Cat = mongoose.model('Cat', schema);
+
+var kitty = new Cat({ name: 'Osvaldinho', age: 666});
+
+kitty.save(function (err) {
+  if (err){
+    console.log('Erro: ', err);
+  }
+  console.log('meow');
+});
