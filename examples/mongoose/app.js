@@ -27,10 +27,10 @@ var BeerSchema = new Schema({
 var Beer = mongoose.model('Beer', BeerSchema);
 
 var dados = {
-  name: 'Heineken',
-  description: 'Até q eh boazinha',
-  alcohol: 5.5,
-  category: 'lager'
+  name: 'Skol',
+  description: 'Vixe Maria!',
+  alcohol: 3.5,
+  category: 'Pilsen'
 }
 
 var model = new Beer(dados);
@@ -39,5 +39,5 @@ model.save(function (err, data) {
   if (err){
     console.log('Erro: ', err);
   }
-  console.log('Cerveja Inserida', data);
+  console.log('Beer successfully inserted!', data);
 });
