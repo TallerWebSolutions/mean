@@ -14,15 +14,30 @@ db.once('open', function () {
   console.log('Connection is open!')
 });
 
-var schema = {name: String, age: Number};
+var Schema = mongoose.Schema;
 
-var Cat = mongoose.model('Cat', schema);
+var BeerSchema = new Schema({
+  name: { type: String, default: '' },
+  description: { type: String, default: '' },
+  alcohol: { type: Number, min: 0},
+  category: { type: String, default: ''},
+  created: { type: Date, default: Date.now }
+});
 
-var kitty = new Cat({ name: 'Osvaldinho', age: 666});
+var Beer = mongoose.model('Beer', BeerSchema);
 
-kitty.save(function (err) {
+var dados = {
+  name: 'Heineken',
+  description: 'Até q eh boazinha',
+  alcohol: 5.5,
+  category: 'lager'
+}
+
+var model = new Beer(dados);
+
+model.save(function (err, data) {
   if (err){
     console.log('Erro: ', err);
   }
-  console.log('meow');
+  console.log('Cerveja Inserida', data);
 });
