@@ -5,9 +5,9 @@ mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;
 db.on('error', function(err){
-  console.log('Erro de conexao.', err)
+  console.log('Connection error: ', err)
 });
 
 db.once('open', function () {
-  console.log('Conexão aberta.')
+  console.log('Connection is open!')
 });
