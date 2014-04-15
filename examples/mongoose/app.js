@@ -26,18 +26,10 @@ var BeerSchema = new Schema({
 
 var Beer = mongoose.model('Beer', BeerSchema);
 
-var dados = {
-  name: 'Skol',
-  description: 'Vixe Maria!',
-  alcohol: 3.5,
-  category: 'Pilsen'
-}
-
-var model = new Beer(dados);
-
-model.save(function (err, data) {
-  if (err){
-    console.log('Erro: ', err);
+Beer.find(function (err, beers) {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(beers);
   }
-  console.log('Beer successfully inserted!', data);
 });
