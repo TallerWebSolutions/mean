@@ -1,0 +1,29 @@
+{
+  "name": "BeMEAN",
+  "version": "0.0.0",
+  "description": "mean ====",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TallerWebSolutions/mean"
+  },
+  "keywords": [
+    "MEAN",
+    "MongoDB",
+    "AngularJS",
+    "Express",
+    "NodeJS"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TallerWebSolutions/mean/issues"
+  },
+  "homepage": "https://github.com/TallerWebSolutions/mean",
+  "dependencies": {
+    "nodemon": "^1.0.17"
+  }
+}
