@@ -2,3 +2,5 @@
 # Ignore config files.
 config/*
 !config/sample*
+
+node_modules/*

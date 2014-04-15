@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/TallerWebSolutions/mean/issues"
   },
-  "homepage": "https://github.com/TallerWebSolutions/mean"
+  "homepage": "https://github.com/TallerWebSolutions/mean",
+  "dependencies": {
+    "mongoose": "^3.8.8"
+  }
 }
