@@ -17,7 +17,9 @@
     "Express",
     "NodeJS"
   ],
-  "author": "",
+  "authors": [
+    "Lucas Constantino <lucas@taller.net.br>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TallerWebSolutions/mean/issues"
