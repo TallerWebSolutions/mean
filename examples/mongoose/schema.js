@@ -4,7 +4,7 @@
 
 var db = require('./db'); // mongoose.
 
-module.exports = {
+exports = {
 
   /**
    * Beer scheme.
