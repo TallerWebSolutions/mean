@@ -3,12 +3,8 @@
 var http = require("http");
 var Beer = require('./schema.js').Beer;
 
-http.createServer(function(request, response) {
-  response.writeHead(200, {"Content-Type": "text/pain"});
-
-  var url = request.url;
-
-  if (url == '/beers/create') {
+var router = {
+  '/beers/create': function (req, res) {
     var dados = {
       name: 'Skol',
       description: 'Mijo de Rato',
@@ -30,8 +26,21 @@ http.createServer(function(request, response) {
       }
       response.end();
     });
-  }
+  },
+  '/beers/update': function (req, res) {
 
+  },
+  '/beers/delete': function (req, res) {
+
+  },
+  '/beers/find': function (req, res) {
+
+  },
+};
+
+http.createServer(function(req, res) {
+  res.writeHead(200, {"Content-Type": "text/pain"});
+  router[req.url] && router[url](req, res);
 }).listen(3000);
 
 console.log('Server running at http://localhost:3000/');
