@@ -1,0 +1,21 @@
+{
+  "name": "axpress-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "jade": "*"
+  },
+  "description": "Our first express app",
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [
+    "NodeJS",
+    "Express"
+  ],
+  "author": "Renato Vasconcellos <renato@taller.net.br>",
+  "license": "GPL-2"
+}
