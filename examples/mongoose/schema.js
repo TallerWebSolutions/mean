@@ -1,11 +1,11 @@
 /**
- * Scheme definition.
+ * Schema definition.
  */
 
 var db = require('./db'); // mongoose.
 
 module.exports = {
-  
+
   /**
    * Beer scheme.
    */

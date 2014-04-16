@@ -11,4 +11,4 @@ mongoose
     console.log('Connection error: ', err)
   });
 
-module.exports = mongoose;  
+module.exports = mongoose;
