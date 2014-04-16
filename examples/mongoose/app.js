@@ -26,10 +26,14 @@ var BeerSchema = new Schema({
 
 var Beer = mongoose.model('Beer', BeerSchema);
 
-Beer.find(function (err, beers) {
-  if(err) {
-    console.log(err);
-  } else {
-    console.log(beers);
+var query = {name: 'Skol'};
+
+var mod = {alcohol: 666};
+
+Beer.update(query, mod, function (err, beers) {
+  if (err){
+    console.log('Erro: ', err);
+  }else{
+    console.log('The Beer was successfully updated!');
   }
 });
