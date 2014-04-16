@@ -26,11 +26,11 @@ var BeerSchema = new Schema({
 
 var Beer = mongoose.model('Beer', BeerSchema);
 
-var query = {name: 'Skol'};
+var query = {name: {$regex: /heineken/i }};
 
-var mod = {alcohol: 666};
+var mod = {alcohol: 90};
 
-Beer.update(query, mod, function (err, beers) {
+Beer.update(query, mod, {multi: true}, function (err, beers) {
   if (err){
     console.log('Erro: ', err);
   }else{
