@@ -6,10 +6,10 @@ var query = {name: {$regex: /heineken/i }};
 
 var mod = {alcohol: 90};
 
-Beer.update(query, mod, {multi: true}, function (err, beers) {
+Beer.update(query, mod, {multi: true}, function (err, beer) {
   if (err){
     console.log('Erro: ', err);
   }else{
-    console.log('The Beer was successfully updated!');
+    console.log('The Beer was successfully updated!', beer);
   }
 });
