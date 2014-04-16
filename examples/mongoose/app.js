@@ -4,6 +4,9 @@ var http = require("http");
 var Beer = require('./schema.js').Beer;
 
 var router = {
+  /**
+   * Create a beer.
+   */
   '/beers/create': function (req, res) {
     var dados = {
       name: 'Skol',
@@ -27,17 +30,27 @@ var router = {
       response.end();
     });
   },
+
+  /**
+   * Update a beer.
+   */
   '/beers/update': function (req, res) {
-
   },
+
+  /**
+   * Delete a beer.
+   */
   '/beers/delete': function (req, res) {
-
   },
-  '/beers/find': function (req, res) {
 
+  /**
+   * Find a beer.
+   */
+  '/beers/find': function (req, res) {
   },
 };
 
+// Instantiate server.
 http.createServer(function(req, res) {
   res.writeHead(200, {"Content-Type": "text/pain"});
   router[req.url] && router[url](req, res);
