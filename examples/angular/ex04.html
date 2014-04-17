@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"
+  data-ng-app="workshopOnline">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ workshop }}</title>
+  </head>
+  <body>
+
+    <p>
+      Olá mundo 2 + 2 = {{ 2 + 2}}
+    </p>
+
+    <label for="nome"> Seu nome:</label>
+    <input type="text"
+      data-ng-model="nome">
+
+    <label for="workshop">Workshop:</label>
+    <input type="text"
+      data-ng-model="workshop">
+
+    <script src="./angular.min.js"></script>
+    <script>
+      angular.module('workshopOnline', []);
+    </script>
+  </body>
+</html>
