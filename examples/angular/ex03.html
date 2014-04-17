@@ -1,15 +1,19 @@
 <!doctype html>
 <html>
-  <body data-ng-app="worshopBeMEAN">
+  <body
+    data-ng-app="workshopBeMEAN">
 
-    Olá mundom 2 + 2 = {{ 2 + 2}}
+    <p>
+      Olá mundo 2 + 2 = {{ 2 + 2}}
+    </p>
 
-    <script src="angular.min.js"></script>
+    <label for="nome"> Seu nome:</label>
+    <input type="text"
+      data-ng-model="nome">
+
+    <script src="./angular.min.js"></script>
     <script>
       angular.module('workshopBeMEAN', []);
     </script>
-
-    <label for="nome"> Seu nome:</label>
-    <input type="text"  data-ng-model="nome">
   </body>
 </html>
