@@ -1,22 +1,26 @@
 <!doctype html>
-<html data-ng-app="workshopBeMEAN">
+<html
+  data-ng-app="workshopBeMEAN">
   <title>{{ workshop }}</title>
   <body>
 
-    <div data-ng-controller='BeerController'>
+    <div
+      data-ng-controller='BeerController'>
       {{ cervejas }}
 
       <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
-      
-      <a href="" data-ng-click="predicate = 'price'; reverse=!reverse">Nome</a>
+
+      <a href=""
+        data-ng-click="predicate = 'name'; reverse=!reverse">Nome</a>
       <ul>
-        <li data-ng-repeat='beer in cervejas | orderBy:predicate:reverse'>
+        <li
+          data-ng-repeat='beer in cervejas | orderBy:predicate:reverse'>
           {{ beer.name }} - {{ beer.price }}
         </li>
       </ul>
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="./angular.min.js"></script>
     <script>
       angular.module('workshopBeMEAN', ['filters'])
         .controller('BeerController', ['$scope', function($scope){

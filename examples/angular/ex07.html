@@ -1,10 +1,11 @@
 <!doctype html>
-<html data-ng-app="workshopBeMEAN">
+<html
+  data-ng-app="workshopBeMEAN">
   <title>{{ workshop }}</title>
   <body>
 
     <p>
-      <!-- Para utilizarmos um filtro usamos o | 
+      <!-- Para utilizarmos um filtro usamos o |
           nesse caso estamos usando o filtro de upperCase
           que apenas coloca em maiúsculo
        -->
@@ -14,7 +15,9 @@
         adicionamos o atributo nd-model para linkarmos o valor
         na váriavel do nosso escopo local $scope.nome
      -->
-      <label>Seu nome: <input type="text" data-ng-model="nome"> </label>
+      <label for="name"></label>>Seu nome:</label>
+        <input type="text" name="name"
+          data-ng-model="nome">
 
       <!-- O valor em {{ nome }} é atualizado automagicamente através
           do two-way databinding
@@ -25,7 +28,7 @@
       <br>
       <br>
     </p>
-    <p> 
+    <p>
 
       <label>Lower<input type="text" data-ng-model="lower" data-ng-init="AAAA"> </label>
       <br>
@@ -41,13 +44,13 @@
         Date: {{ 1395362708482 | date:'dd/MM/yyyy HH:mm:ss Z'}}
 
     </p>
-    <p> 
+    <p>
       <strong>Formatação de moeda</strong>
         <input type="number" ng-model="amount"> <br>
         default currency symbol (R$): <span id="currency-default">{{amount | currency}}</span><br>
         custom currency identifier (R$): <span>{{amount | currency:"R$"}}</span>
     </p>
-    
+
 
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
