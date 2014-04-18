@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-ng-app="workshopOnline">
+<html data-ng-app="workshopBeMEAN">
   <title>{{ workshop }}</title>
   <body>
 
@@ -8,7 +8,7 @@
       {{ cervejas }}
 
       <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
-
+      
       <a href="" data-ng-click="predicate = 'name'; reverse=!reverse">Nome</a>
 
       <!-- Listamos as cervejas do nosso escopo a diretiva ng-repeat -->
@@ -21,12 +21,42 @@
       </ul>
     </div>
 
+    <div data-ng-controller='SashaGreyController'>
+      <!-- {{ videos }} -->
+      <ul>
+        <li data-ng-repeat='v in videos'>
+
+          <h3>{{v.video.title}}</h3>
+          <a href={{v.video.url}}>
+            <img data-ng-src="{{ v.video.default_thumb }}" alt="{{v.video.title}}" title="{{v.video.title}}">
+          </a>
+        </li>
+      </ul>
+    </div>
+
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
     <script>
-      angular.module('workshopOnline', ['workshopFilters', 'workshopControllers']);
+      angular.module('workshopBeMEAN', ['workshopFilters', 'workshopControllers'])
+
       angular.module('workshopControllers', [])
-      .controller('BeerController', ['$scope',
-        function($scope){
+      .controller('SashaGreyController', ['$scope', '$http', 
+        function($scope, $http){
+
+          // var url = 'http://cep.correiocontrol.com.br/02011200.json';
+          var url = 'http://cors.io/api.redtube.com/?data=redtube.Videos.searchVideos&search=Sasha%20Gray';
+
+          $http.get(url)
+          .success(function(data) { //função executada após o sucesso da requisição
+            console.log(data);
+            $scope.videos = data.videos;
+            // Object {bairro: "Santana", logradouro: "Rua Voluntários da Pátria", cep: "02011200", uf: "SP", localidade: "São Paulo"} 
+          })
+          .error(function(err){ //função executada após o erro da requisição
+            console.log('Error: ', err)
+          });
+        }])
+      .controller('BeerController', ['$scope', '$http',
+        function($scope, $http){
           var cerveja1 = {name: 'kaiser', price: 2};
           var cerveja2 = {name: 'skol', price: 3};
           var cerveja3 = {name: 'glacial', price: 4};
@@ -34,6 +64,7 @@
 
           // ADICIONANDO AS CERVEJAS NO SCOPE DO CONTROLLER
           $scope.cervejas = [cerveja1, cerveja2, cerveja3, cerveja4];
+
       }]);
 
       angular.module('workshopFilters', [])
