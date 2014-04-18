@@ -1,0 +1,71 @@
+<!doctype html>
+<html data-ng-app="workshopOnline">
+  <title>{{ workshop }}</title>
+  <body>
+
+    <p>
+      <!-- Para utilizarmos um filtro usamos o |
+          nesse caso estamos usando o filtro de upperCase
+          que apenas coloca em maiúsculo
+       -->
+      <h3>Olá mundo, {{ nome | uppercase | reverseName }}</h3>
+
+      <!-- Adicionamos um input para inserirmos um valor para nome
+        adicionamos o atributo nd-model para linkarmos o valor
+        na váriavel do nosso escopo local $scope.nome
+     -->
+      <label for="name">Seu nome:</label>
+      <input type="text" name="name"
+        data-ng-model="nome">
+
+      <!-- O valor em {{ nome }} é atualizado automagicamente através
+          do two-way databinding
+      -->
+      <br>
+      <label for="workshop">Workshop:</label>
+      <input type="text" name="workshop"
+        data-ng-model="workshop">
+
+      <br>
+      <br>
+    </p>
+    <p>
+
+      <label for="lower">Lower:</label>
+        <input type="text" name="lower" data-ng-model="lower"
+        data-ng-init="AAAA">
+      <br>
+      <strong>Minúsculas</strong>
+      Lowercase {{lower}}: {{ lower | lowercase }}
+    </p>
+    <p>
+        <strong>Número de casas decimais.</strong>
+        Number: {{ 1234 | number:4 }}
+    </p>
+    <p>
+        <strong>Formatação de datas com timestamp</strong>
+        Date: {{ 1395362708482 | date:'dd/MM/yyyy HH:mm:ss Z'}}
+
+    </p>
+    <p>
+      <strong>Formatação de moeda</strong>
+        <input type="number" ng-model="amount"> <br>
+        default currency symbol (R$): <span id="currency-default">{{amount | currency}}</span><br>
+        custom currency identifier (R$): <span>{{amount | currency:"R$"}}</span>
+    </p>
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script>
+      angular.module('workshopOnline', [])
+      .filter('reverseName', function () {
+            return function (text) {
+              if(text)
+                return text.split("").reverse().join("");
+            };
+        });
+    </script>
+  </body>
+</html>
+
