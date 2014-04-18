@@ -60,8 +60,6 @@ app.get('/api/beers', function (req, res) {
       res.json(data)
     }
   });
-
-  res.json(beers);
 });
 
 // redirect all others to the index (HTML5 history)
